@@ -26,7 +26,7 @@
                             <td>{{ substr($post->title, 0, 10) }}</td>
                             <td>{{ substr($post->sub_title, 0, 20) }}</td>
                             <td>{{ substr($post->description, 0, 40) }}</td>
-                            <td><img src="{{ asset('/upload/Post/'.$post->image) }}" width="80px" height="50px" alt="{{ substr($post->title, 0, 10) }}"></td>
+                            <td><img src="{{ file_exists(asset('/upload/Post/'.$post->image)) ? asset('/upload/Post/'.$post->image) :$post->image }}" width="80px" height="50px" alt="{{ substr($post->title, 0, 10) }}"></td>
                             <td><input type="checkbox" data-toggle="toggle" id="PostStatus" data-id="{{ $post->id }}" data-on="Active" data-size="normal" data-offstyle="warning" data-off="Inactive" {{ $post->status == 'active' ? 'checked':'' }}></td>
                             <td>
                                 <a href="{{ route('admin.category.view', $post->id) }}" class="btn btn-info btn-sm float-left mr-1">View</a>

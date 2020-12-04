@@ -5,16 +5,17 @@
 @section('content')
     <!-- Blog Post -->
     @foreach($allPost as $Post)
-        <div class="card mb-4">
-            <img class="card-img-top img-fluid" height="80px" src="{{ asset('/upload/Post/'.$Post->image) }}" alt="{{ $Post->title }}">
+        <div class="card mb-3">
+            <img class="card-img-top img-fluid" style="height: 300px" src="{{  asset('/upload/Post/'.$Post->image) }}" alt="{{ $Post->title }}">
             <div class="card-body">
                 <h2 class="card-title">{{ $Post->title }}</h2>
                 <p class="card-text">{{ $Post->description }}</p>
                 {{--<a href="#" class="btn btn-primary">Read More &rarr;</a>--}}
             </div>
             <div class="card-footer text-muted">
-                Posted on January 1, 2020 by
-                <a href="">{{ $Post->users}}</a>
+                January 1, 2020
+                Posted on {{ $Post->create }} by
+                <a href="">{{ $Post->users->name }}</a>
             </div>
         </div>
     @endforeach
